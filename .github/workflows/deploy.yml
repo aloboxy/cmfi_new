@@ -23,7 +23,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
           script: |
-            cd ~/portal.rtag.online/
+            cd ~/new.cmfischool.online/
             git pull
 
           exclude: |
