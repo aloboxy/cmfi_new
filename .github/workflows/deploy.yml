@@ -31,7 +31,8 @@ jobs:
             **/.github*
             **/uploads/*
             **/System/*
-            **/assets/*
+            **/assets/images/*
+            **/assets/vendor/*
             **/application/config/*
              **/application/cache/*
              **/application/logs/*

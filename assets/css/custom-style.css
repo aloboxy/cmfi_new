@@ -59,7 +59,7 @@ a:active {
 }
 
 html.sidebar-light:not(.dark) .header .logo-env {
-	background: linear-gradient(to right, rgb(228 180 10) 0%, #fff 100%);
+	background: linear-gradient(to right, rgb(74, 213, 232) 0%, #fff 100%);
 }
 
 /* Layout Base - Shortcut Menu */
