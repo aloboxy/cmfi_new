@@ -235,6 +235,84 @@
 						</ul>
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">System Colors</label>
+					<div class="col-md-8 mb-md">
+						<div class="row">
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Primary/Brand Color</label>
+								<input type="color" class="form-control" name="primary_color" value="<?=set_value('primary_color', !empty($theme_config['primary_color']) ? $theme_config['primary_color'] : '#1D4ED8')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Sidebar Background</label>
+								<input type="color" class="form-control" name="sidebar_bg" value="<?=set_value('sidebar_bg', !empty($theme_config['sidebar_bg']) ? $theme_config['sidebar_bg'] : '#0D1B3E')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Sidebar Text</label>
+								<input type="color" class="form-control" name="sidebar_text" value="<?=set_value('sidebar_text', !empty($theme_config['sidebar_text']) ? $theme_config['sidebar_text'] : '#C5D0E8')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Sidebar Active Item</label>
+								<input type="color" class="form-control" name="sidebar_active" value="<?=set_value('sidebar_active', !empty($theme_config['sidebar_active']) ? $theme_config['sidebar_active'] : '#F4A61F')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Dark Text Color</label>
+								<input type="color" class="form-control" name="text_dark" value="<?=set_value('text_dark', !empty($theme_config['text_dark']) ? $theme_config['text_dark'] : '#111827')?>" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">ID Card Designer</label>
+					<div class="col-md-8 mb-md">
+						<div class="row">
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">ID Card Layout</label>
+								<select name="idcard_layout" class="form-control">
+									<option value="vertical" <?=($theme_config['idcard_layout'] == 'vertical' ? 'selected' : '')?>>Vertical</option>
+									<option value="horizontal" <?=($theme_config['idcard_layout'] == 'horizontal' ? 'selected' : '')?>>Horizontal</option>
+								</select>
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Card Background</label>
+								<input type="color" class="form-control" name="idcard_bg_color" value="<?=set_value('idcard_bg_color', !empty($theme_config['idcard_bg_color']) ? $theme_config['idcard_bg_color'] : '#ffffff')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Card Text Color</label>
+								<input type="color" class="form-control" name="idcard_text_color" value="<?=set_value('idcard_text_color', !empty($theme_config['idcard_text_color']) ? $theme_config['idcard_text_color'] : '#333333')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
+								<label class="control-label">Card Border Color</label>
+								<input type="color" class="form-control" name="idcard_border_color" value="<?=set_value('idcard_border_color', !empty($theme_config['idcard_border_color']) ? $theme_config['idcard_border_color'] : '#E5E7EB')?>" />
+							</div>
+						</div>
+						<div class="row mt-md">
+							<div class="col-md-12">
+								<label class="control-label" style="display: block; font-weight: bold; margin-bottom: 8px;">Visible Fields on ID Card</label>
+								<label class="checkbox-inline mr-md">
+									<input type="hidden" name="idcard_show_father" value="0">
+									<input type="checkbox" name="idcard_show_father" value="1" <?=($theme_config['idcard_show_father'] == 1 ? 'checked' : '')?>> Father's Name
+								</label>
+								<label class="checkbox-inline mr-md">
+									<input type="hidden" name="idcard_show_class" value="0">
+									<input type="checkbox" name="idcard_show_class" value="1" <?=($theme_config['idcard_show_class'] == 1 ? 'checked' : '')?>> Class
+								</label>
+								<label class="checkbox-inline mr-md">
+									<input type="hidden" name="idcard_show_section" value="0">
+									<input type="checkbox" name="idcard_show_section" value="1" <?=($theme_config['idcard_show_section'] == 1 ? 'checked' : '')?>> Section
+								</label>
+								<label class="checkbox-inline mr-md">
+									<input type="hidden" name="idcard_show_blood" value="0">
+									<input type="checkbox" name="idcard_show_blood" value="1" <?=($theme_config['idcard_show_blood'] == 1 ? 'checked' : '')?>> Blood Group
+								</label>
+								<label class="checkbox-inline mr-md">
+									<input type="hidden" name="idcard_show_qrcode" value="0">
+									<input type="checkbox" name="idcard_show_qrcode" value="1" <?=($theme_config['idcard_show_qrcode'] == 1 ? 'checked' : '')?>> QR Code
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
 				<footer class="panel-footer">
 					<div class="row">
 						<div class="col-md-2 col-sm-offset-3">
@@ -278,6 +356,12 @@
 						<div class="form-group">
 							<label class="control-label"><?=translate('report_card');?></label>
 							<input type="file" name="report_card" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=base_url('uploads/app_image/report-card-logo.png')?>" />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="control-label">ID Card Background</label>
+							<input type="file" name="idcard_bg" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=file_exists('uploads/app_image/idcard_bg.png') ? base_url('uploads/app_image/idcard_bg.png') : ''?>" />
 						</div>
 					</div>
 				</div>

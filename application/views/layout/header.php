@@ -2,9 +2,9 @@
 	<meta charset="UTF-8">
 	<meta name="keywords" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="SouMed School Management System">
-	<meta name="author" content="SouMed">
-	<title><?php echo html_escape($title);?></title>
+	<meta name="description" content="CMFI School Management System - Monrovia, Liberia">
+	<meta name="author" content="CMFI School">
+	<title><?php echo html_escape($title);?> — CMFI School</title>
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- include stylesheet -->
@@ -29,13 +29,10 @@
 		}
 	}
 	?>
-	<!-- ramom css -->
+	<!-- ramom base css -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/ramom.css');?>">
-	<?php if ($theme_config["border_mode"] == 'false'): ?>
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/skins/square-borders.css');?>">
-	<?php endif; ?>
 
-	<!-- If user have enabled CSRF proctection this function will take care of the ajax requests and append custom header for CSRF -->
+	<!-- If user have enabled CSRF protection this function will take care of the ajax requests and append custom header for CSRF -->
 	<script type="text/javascript">
 		var base_url = '<?php echo base_url(); ?>';
 		var csrfData = <?php echo json_encode(csrf_jquery_token()); ?>;

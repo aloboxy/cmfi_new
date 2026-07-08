@@ -1,7 +1,8 @@
 <header class="header">
 	<div class="logo-env">
 		<a href="<?php echo base_url('dashboard');?>" class="logo">
-			<img src="<?php echo base_url('uploads/app_image/logo-small.png');?>" height="40">
+			<img src="<?php echo base_url('uploads/app_image/logo-small.png');?>" class="topbar-logo-img" alt="Logo">
+			<span class="logo-text">School <span class="logo-text-bold">SM</span></span>
 		</a>
 
 		<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -13,61 +14,18 @@
 		<ul class="header-menu">
 			<!-- sidebar toggle button -->
 			<li>
-				<div class="header-menu-icon sidebar-toggle" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+				<div class="header-menu-icon sidebar-toggle-btn" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
 					<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
 				</div>
 			</li>
-			<!-- full screen button -->
-			<li>
-				<div class="header-menu-icon s-expand">
-					<i class="fas fa-expand"></i>
-				</div>
-			</li>
-			<!-- shortcut box -->
-            <?php
-            if(get_permission('student', 'is_add') ||
-            get_permission('salary_payment', 'is_add') ||
-            get_permission('leave_manage', 'is_view') ||
-            get_permission('live_class', 'is_view') ||
-            get_permission('due_invoice', 'is_view') ||
-            get_permission('invoice', 'is_view')) {
-            ?>
-			<li>
-				<div class="header-menu-icon dropdown-toggle" data-toggle="dropdown">
-					<i class="fas fa-th"></i>
-				</div>
-				<div class="dropdown-menu header-menubox qk-menu">
-					<div class="qk-menu-p">
-						<div class="menu-icon-grid">
-						<?php if(get_permission('student', 'is_add')){ ?>
-							<a href="<?php echo base_url('student/add');?>"><i class="fas fa-users"></i> <?php echo translate('student_admission');?></a>
-						<?php } if(get_permission('salary_payment', 'is_add')) { ?>
-							<a href="<?php echo base_url('payroll'); ?>"><i class="fas fa-donate"></i> <?php echo translate('salary_payment');?></a>
-						<?php } if(get_permission('leave_manage', 'is_view')) { ?>
-							<a href="<?php echo base_url('leave');?>"><i class="fas fa-fill-drip"></i> <?php echo translate('leave_application');?></a>
-						<?php } if(get_permission('live_class', 'is_view')) { ?>
-							<a href="<?php echo base_url('live_class');?>"><i class="fas fa-video"></i> <?php echo translate('live_class_rooms');?></a>
-						<?php } if(get_permission('due_invoice', 'is_view')) { ?>
-							<a href="<?php echo base_url('fees/due_invoice');?>"><i class="fas fa-hand-holding-usd"></i> <?php echo translate('due_fees_invoice');?></a>
-						<?php } if(get_permission('invoice', 'is_view')) { ?>
-							<a href="<?php echo base_url('fees/invoice_list');?>"><i class="fab fa-wpforms"></i> <?php echo translate('payments_history');?></a>
-						<?php } ?>
-						</div>
-					</div>
-				</div>
-			</li>
-			<?php } ?>
 		</ul>
 
 		<!-- search bar -->
 		<?php if (get_permission('student', 'is_view')): ?>
-			<span class="separator hidden-sm"></span>
-			<?php echo form_open('student/search', array('class' => 'search nav-form'));?>
-				<div class="input-group input-search">
-					<input type="text" class="form-control" name="search_text" id="search_text" placeholder="<?php echo translate('search');?>">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-					</span>
+			<?php echo form_open('student/search', array('class' => 'search nav-form-modern'));?>
+				<div class="search-input-wrapper">
+					<i class="fa fa-search search-icon"></i>
+					<input type="text" class="search-input-field" name="search_text" id="search_text" placeholder="Search here">
 				</div>
 			</form>
 		<?php endif;?>
@@ -189,15 +147,25 @@ foreach($languages as $lang) :
 					</div>
 				</div>
 			</li>
+			<!-- full screen button -->
+			<li>
+				<div class="header-menu-icon s-expand">
+					<i class="fas fa-expand"></i>
+				</div>
+			</li>
 		</ul>
 
 		<!-- user profile box -->
-		<span class="separator"></span>
 		<div id="userbox" class="userbox">
-			<a href="#" data-toggle="dropdown">
+			<a href="#" data-toggle="dropdown" class="clearfix">
 				<figure class="profile-picture">
-					<img src="<?php echo get_image_url(get_loggedin_user_type(), $this->session->userdata('logger_photo'));?>" alt="user-image" class="img-circle" height="35">
+					<img src="<?php echo get_image_url(get_loggedin_user_type(), $this->session->userdata('logger_photo'));?>" alt="user-image" class="img-circle">
 				</figure>
+				<div class="profile-info hidden-xs">
+					<span class="name"><?php echo $this->session->userdata('name');?></span>
+					<span class="role"><?php echo ucfirst(loggedin_role_name());?></span>
+				</div>
+				<i class="fa custom-caret"></i>
 			</a>
 			<div class="dropdown-menu">
 				<ul class="dropdown-user list-unstyled">

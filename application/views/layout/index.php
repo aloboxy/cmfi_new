@@ -3,13 +3,7 @@
 <!-- html header -->
 <?php $this->load->view('layout/header.php');?>
 
-<body class="loading-overlay-showing" data-loading-overlay>
-	<!-- page preloader -->
-	<div class="loading-overlay dark">
-		<div class="ring-loader">
-			Loading <span></span>
-		</div>
-	</div>
+<body>
 	<section class="body">
 		<!-- top navbar-->
 		<?php $this->load->view('layout/topbar.php');?>
