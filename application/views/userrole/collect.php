@@ -28,7 +28,7 @@ if (count($allocations)) {
 								<div class="row">
 									<div class="col-xs-6">
 										<div class="ib">
-											<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" alt="RamomCoder Img" />
+											<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" alt="techexplorerCoder Img" />
 										</div>
 									</div>
 									<div class="col-md-6 text-right">

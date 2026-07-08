@@ -252,6 +252,10 @@
 								<input type="color" class="form-control" name="sidebar_text" value="<?=set_value('sidebar_text', !empty($theme_config['sidebar_text']) ? $theme_config['sidebar_text'] : '#C5D0E8')?>" />
 							</div>
 							<div class="col-md-4 mb-sm">
+								<label class="control-label">Sidebar Icons</label>
+								<input type="color" class="form-control" name="sidebar_icon" value="<?=set_value('sidebar_icon', !empty($theme_config['sidebar_icon']) ? $theme_config['sidebar_icon'] : '#C5D0E8')?>" />
+							</div>
+							<div class="col-md-4 mb-sm">
 								<label class="control-label">Sidebar Active Item</label>
 								<input type="color" class="form-control" name="sidebar_active" value="<?=set_value('sidebar_active', !empty($theme_config['sidebar_active']) ? $theme_config['sidebar_active'] : '#F4A61F')?>" />
 							</div>
@@ -337,31 +341,31 @@
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label"><?=translate('system_logo');?></label>
-							<input type="file" name="logo_file" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=base_url('uploads/app_image/logo.png')?>" />
+							<input type="file" name="logo_file" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=cache_busted_url('uploads/app_image/logo.png')?>" />
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label"><?=translate('text_logo');?></label>
-							<input type="file" name="text_logo" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=base_url('uploads/app_image/logo-small.png')?>" />
+							<input type="file" name="text_logo" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=cache_busted_url('uploads/app_image/logo-small.png')?>" />
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label"><?=translate('printing_logo');?></label>
-							<input type="file" name="print_file" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=base_url('uploads/app_image/printing-logo.png')?>" />
+							<input type="file" name="print_file" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=cache_busted_url('uploads/app_image/printing-logo.png')?>" />
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label"><?=translate('report_card');?></label>
-							<input type="file" name="report_card" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=base_url('uploads/app_image/report-card-logo.png')?>" />
+							<input type="file" name="report_card" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=cache_busted_url('uploads/app_image/report-card-logo.png')?>" />
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label">ID Card Background</label>
-							<input type="file" name="idcard_bg" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=file_exists('uploads/app_image/idcard_bg.png') ? base_url('uploads/app_image/idcard_bg.png') : ''?>" />
+							<input type="file" name="idcard_bg" class="dropify" data-allowed-file-extensions="png" data-default-file="<?=file_exists('uploads/app_image/idcard_bg.png') ? cache_busted_url('uploads/app_image/idcard_bg.png') : ''?>" />
 						</div>
 					</div>
 				</div>
@@ -374,19 +378,19 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							<label class="control-label">Slider 1</label>
-							<input type="file" name="slider_1" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=base_url('uploads/login_image/slider_1.jpg')?>" />
+							<input type="file" name="slider_1" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=cache_busted_url('uploads/login_image/slider_1.jpg')?>" />
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
 							<label class="control-label">Slider 2</label>
-							<input type="file" name="slider_2" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=base_url('uploads/login_image/slider_2.jpg')?>" />
+							<input type="file" name="slider_2" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=cache_busted_url('uploads/login_image/slider_2.jpg')?>" />
 						</div>
 					</div>
 					<div class="col-md-4 mb-lg">
 						<div class="form-group">
 							<label class="control-label">Slider 3</label>
-							<input type="file" name="slider_3" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=base_url('uploads/login_image/slider_3.jpg')?>" />
+							<input type="file" name="slider_3" class="dropify" data-allowed-file-extensions="jpg" data-default-file="<?=cache_busted_url('uploads/login_image/slider_3.jpg')?>" />
 						</div>
 					</div>
 				</div>

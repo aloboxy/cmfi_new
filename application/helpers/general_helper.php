@@ -90,6 +90,16 @@ function get_global_setting($name = '')
     }
 }
 
+function cache_busted_url($path)
+{
+    $CI = &get_instance();
+    $file = FCPATH . $path;
+    if (file_exists($file)) {
+        return base_url($path . '?v=' . filemtime($file));
+    }
+    return base_url($path);
+}
+
 // is superadmin logged in @return boolean
 function is_superadmin_loggedin()
 {

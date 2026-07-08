@@ -29,8 +29,8 @@
 		}
 	}
 	?>
-	<!-- ramom base css -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/ramom.css');?>">
+	<!-- techexplorer base css -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/techexplorer.css');?>">
 
 	<!-- If user have enabled CSRF protection this function will take care of the ajax requests and append custom header for CSRF -->
 	<script type="text/javascript">

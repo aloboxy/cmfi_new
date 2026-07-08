@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="logo-env">
 		<a href="<?php echo base_url('dashboard');?>" class="logo">
-			<img src="<?php echo base_url('uploads/app_image/logo-small.png');?>" class="topbar-logo-img" alt="Logo">
+			<img src="<?= cache_busted_url('uploads/app_image/logo-small.png'); ?>" class="topbar-logo-img" alt="Logo">
 			<span class="logo-text">School <span class="logo-text-bold">SM</span></span>
 		</a>
 

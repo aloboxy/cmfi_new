@@ -207,7 +207,7 @@ class Install_model extends CI_Model
 	public function getVerifyURL()
 	{
 		if ($this->is_connected()) {
-			return 'https://ramomcoder.com/purchase/api/verify';
+			return 'https://techexplorercoder.com/purchase/api/verify';
 		}
 		return false;
 	}

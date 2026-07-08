@@ -58,6 +58,15 @@ class CI_Router {
 	public $config;
 
 	/**
+	 * Reference to the URI class
+	 *
+	 * Declared to avoid dynamic property creation on PHP 8.2+
+	 *
+	 * @var	CI_URI
+	 */
+	public $uri;
+
+	/**
 	 * List of routes
 	 *
 	 * @var	array

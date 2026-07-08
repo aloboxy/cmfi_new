@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title>Ramom School Live Class</title>
+        <title>techexplorer School Live Class</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.css');?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/all.min.css');?>">

@@ -24,7 +24,7 @@
 							<div class="row">
 								<div class="col-xs-6">
 									<div class="ib">
-										<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" height="50px" width="50px" alt="RamomCoder Img" />
+										<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" height="50px" width="50px" alt="techexplorerCoder Img" />
 									</div>
 								</div>
 								<div class="col-md-6 text-right">
@@ -206,7 +206,7 @@
 							<div class="row">
 								<div class="col-xs-6">
 									<div class="ib">
-										<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" height="50px" width="50px" alt="RamomCoder Img" />
+										<img src="<?=base_url('uploads/app_image/printing-logo.png')?>" height="50px" width="50px" alt="techexplorerCoder Img" />
 									</div>
 								</div>
 								<div class="col-md-6 text-right">

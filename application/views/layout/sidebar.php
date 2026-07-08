@@ -1,8 +1,21 @@
 <aside id="sidebar-left" class="sidebar-left">
 	<div class="sidebar-brand-header">
 		<div class="sidebar-brand-logo">
+			<?php
+				$brand_school_name = 'LIB Image';
+				$branch_id = get_loggedin_branch_id();
+				if (is_superadmin_loggedin() && $this->input->get('school_id')) {
+					$branch_id = $this->input->get('school_id');
+				}
+				if (!empty($branch_id)) {
+					$branch = $this->db->select('school_name')->from('branch')->where('id', $branch_id)->get()->row();
+					if (!empty($branch->school_name)) {
+						$brand_school_name = $branch->school_name;
+					}
+				}
+			?>
 			<span class="brand-icon"><i class="fas fa-graduation-cap"></i></span>
-			<span class="brand-text">CMFI<span class="brand-text-light">School</span></span>
+			<span class="brand-text"><?= html_escape($brand_school_name); ?></span>
 		</div>
 		<div class="sidebar-brand-sub">Management System</div>
 	</div>
@@ -1124,6 +1137,13 @@
                                     <span><i class="fas fa-caret-right" aria-hidden="true"></i><?=translate('school_settings')?></span>
                                 </a>
                             </li>
+                            <?php if(get_permission('school_settings', 'is_view')){ ?>
+                            <li class="<?php if ($sub_page == 'settings/report_card_template') echo 'nav-active';?>">
+                                <a href="<?=base_url('settings/report_card_template')?>">
+                                    <span><i class="fas fa-caret-right" aria-hidden="true"></i><?=translate('report_card_template')?></span>
+                                </a>
+                            </li>
+                            <?php } ?>
                             <?php } if (is_superadmin_loggedin()) { ?>
                             <li class="<?php if ($sub_page == 'role/index' || $sub_page == 'role/permission') echo 'nav-active';?>">
                                 <a href="<?=base_url('role')?>">

@@ -16,6 +16,7 @@
   --info:           #3B82F6;
   --sidebar-bg:       #0D1B3E;
   --sidebar-text:     #C5D0E8;
+  --sidebar-icon:     #C5D0E8;
   --sidebar-active:   #F4A61F;
   --sidebar-active-bg: rgba(244,166,31,0.15);
   --sidebar-hover-bg:  rgba(255,255,255,0.06);
@@ -39,6 +40,7 @@
 html.sidebar-light:not(.dark) {
   --sidebar-bg:       #ffffff;
   --sidebar-text:     #374151;
+  --sidebar-icon:     #4B5563;
   --sidebar-active:   #1D4ED8;
   --sidebar-active-bg: rgba(29,78,216,0.08);
   --sidebar-hover-bg:  rgba(0,0,0,0.04);
@@ -61,6 +63,7 @@ html.dark {
   --shadow-lg:      0 8px 32px rgba(0,0,0,0.5);
   --sidebar-bg:       #0B1220;
   --sidebar-text:     #E5E7EB;
+  --sidebar-icon:     #9CA3AF;
   --sidebar-active:   #F4A61F;
   --sidebar-active-bg: rgba(244,166,31,0.15);
   --sidebar-hover-bg:  rgba(255,255,255,0.08);
@@ -117,6 +120,15 @@ body, html {
   box-shadow: none !important;
 }
 
+.nav-main > li > a i {
+  color: var(--sidebar-icon) !important;
+  transition: color 0.2s ease !important;
+}
+
+.nav-main > li > a:hover i {
+  color: var(--sidebar-active) !important;
+}
+
 .nav-main > li.nav-active > a i {
   color: var(--sidebar-active) !important;
 }
@@ -143,6 +155,16 @@ ul.nav-main > li.nav-active > a {
 .nav-main li .nav-children li.nav-active > a {
   color: var(--sidebar-active) !important;
   opacity: 1 !important;
+}
+
+.nav-main li .nav-children li > a i {
+  color: var(--sidebar-icon) !important;
+  transition: color 0.2s ease !important;
+}
+
+.nav-main li .nav-children li > a:hover i,
+.nav-main li .nav-children li.nav-active > a i {
+  color: var(--sidebar-active) !important;
 }
 
 /* ── Top Header ── */

@@ -345,7 +345,7 @@ if (file_exists('uploads/app_image/idcard_bg.png')) {
 	    frameDoc.document.write('<html><head><title></title>');
 	    frameDoc.document.write('<link rel="stylesheet" href="' + base_url + 'assets/vendor/bootstrap/css/bootstrap.min.css">');
 	    frameDoc.document.write('<link rel="stylesheet" href="' + base_url + 'assets/css/custom-style.css">');
-	    frameDoc.document.write('<link rel="stylesheet" href="' + base_url + 'assets/css/ramom.css">');
+	    frameDoc.document.write('<link rel="stylesheet" href="' + base_url + 'assets/css/techexplorer.css">');
 	    frameDoc.document.write('<link rel="stylesheet" href="' + base_url + 'assets/css/idcard.css">');
 	    
 	    // Inject dynamic template builder style tag for the printing document

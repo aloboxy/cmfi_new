@@ -178,4 +178,72 @@ class Exam_model extends CI_Model
         return $result;
     }
 
+    public function getStudentExamRanks($studentIDs, $examID, $sessionID, $branchID)
+    {
+        if (empty($studentIDs)) {
+            return array();
+        }
+
+        $rows = $this->db->select('m.student_id, m.mark, IFNULL(m.absent, 0) as absent, te.mark_distribution')
+            ->from('mark as m')
+            ->join('timetable_exam as te', 'te.exam_id = m.exam_id and te.class_id = m.class_id and te.section_id = m.section_id and te.subject_id = m.subject_id', 'left')
+            ->where('m.exam_id', $examID)
+            ->where('m.session_id', $sessionID)
+            ->where_in('m.student_id', $studentIDs)
+            ->get()
+            ->result_array();
+
+        $scores = array();
+        foreach ($rows as $row) {
+            $studentID = $row['student_id'];
+            if (!isset($scores[$studentID])) {
+                $scores[$studentID] = array('obtained' => 0, 'full' => 0);
+            }
+            $mark = (float) $row['mark'];
+            $absent = (int) $row['absent'];
+            $distribution = json_decode($row['mark_distribution'], true);
+            $full_mark = 0;
+            if (is_array($distribution)) {
+                foreach ($distribution as $item) {
+                    if (isset($item['full_mark'])) {
+                        $full_mark += floatval($item['full_mark']);
+                    }
+                }
+            }
+            $scores[$studentID]['obtained'] += $absent ? 0 : $mark;
+            $scores[$studentID]['full'] += $full_mark;
+        }
+
+        $rank_data = array();
+        foreach ($scores as $studentID => $score) {
+            $percent = 0;
+            if ($score['full'] > 0) {
+                $percent = ($score['obtained'] * 100) / $score['full'];
+            }
+            $rank_data[$studentID] = array(
+                'student_id' => $studentID,
+                'score' => $percent,
+            );
+        }
+
+        usort($rank_data, function ($a, $b) {
+            if ($a['score'] == $b['score']) {
+                return 0;
+            }
+            return ($a['score'] > $b['score']) ? -1 : 1;
+        });
+
+        $ranked = array();
+        $rank = 1;
+        $previousScore = null;
+        foreach ($rank_data as $index => $row) {
+            if ($index > 0 && $row['score'] < $previousScore) {
+                $rank = $index + 1;
+            }
+            $ranked[$row['student_id']] = $rank;
+            $previousScore = $row['score'];
+        }
+
+        return $ranked;
+    }
 }

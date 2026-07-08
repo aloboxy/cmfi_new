@@ -34,6 +34,9 @@
     <?php if (!empty($theme_config['sidebar_text'])): ?>
     --sidebar-text: <?php echo $theme_config['sidebar_text']; ?> !important;
     <?php endif; ?>
+    <?php if (!empty($theme_config['sidebar_icon'])): ?>
+    --sidebar-icon: <?php echo $theme_config['sidebar_icon']; ?> !important;
+    <?php endif; ?>
     <?php if (!empty($theme_config['sidebar_active'])): ?>
     --sidebar-active: <?php echo $theme_config['sidebar_active']; ?> !important;
     <?php endif; ?>

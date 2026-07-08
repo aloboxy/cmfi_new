@@ -92,6 +92,15 @@ class CI_URI {
 	protected $_permitted_uri_chars;
 
 	/**
+	 * Reference to Config class
+	 *
+	 * Declared to avoid dynamic property creation on PHP 8.2+
+	 *
+	 * @var	CI_Config
+	 */
+	public $config;
+
+	/**
 	 * Class constructor
 	 *
 	 * @return	void

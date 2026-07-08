@@ -594,7 +594,7 @@ CREATE TABLE `global_settings` (
 --
 
 INSERT INTO `global_settings` (`id`, `institute_name`, `institution_code`, `reg_prefix`, `institute_email`, `address`, `mobileno`, `currency`, `currency_symbol`, `sms_service_provider`, `session_id`, `translation`, `footer_text`, `animations`, `timezone`, `date_format`, `facebook_url`, `twitter_url`, `linkedin_url`, `youtube_url`, `cron_secret_key`, `created_at`, `updated_at`) VALUES
-(1, 'Test', 'RSM-', 'on', 'ramom@example.com', '', '', 'USD', '₹', 'disabled', 3, 'english', '© 2020 Ramom School Management - Developed by RamomCoder', 'fadeInUp', 'Pacific/Midway', 'd.M.Y', 'https://www.facebook.com/username', 'https://www.twitter.com/username', 'https://www.linkedin.com/username', 'https://www.youtube.com/username', '340fe292903d1bdc2eb79298a71ebda6', '2018-10-22 15:07:49', '2020-05-31 13:06:26');
+(1, 'Test', 'RSM-', 'on', 'techexplorer@example.com', '', '', 'USD', '₹', 'disabled', 3, 'english', '© 2020 techexplorer School Management - Developed by techexplorerCoder', 'fadeInUp', 'Pacific/Midway', 'd.M.Y', 'https://www.facebook.com/username', 'https://www.twitter.com/username', 'https://www.linkedin.com/username', 'https://www.youtube.com/username', '340fe292903d1bdc2eb79298a71ebda6', '2018-10-22 15:07:49', '2020-05-31 13:06:26');
 
 -- --------------------------------------------------------
 

@@ -41,17 +41,24 @@
 	}
 	if($alertclass != ''):
 		$alert_message = $this->session->flashdata('alert-message-'. $alertclass);
+		$alert_id = md5($alert_message);
 	?>
 		<script type="text/javascript">
-			swal({
-				toast: true,
-				position: 'top-end',
-				type: '<?php echo $alertclass?>',
-				title: '<?php echo $alert_message?>',
-				confirmButtonClass: 'btn btn-default',
-				buttonsStyling: false,
-				timer: 8000
-			})
+			(function() {
+				var alertId = 'swal_alert_<?php echo $alert_id; ?>';
+				if (!sessionStorage.getItem(alertId)) {
+					sessionStorage.setItem(alertId, 'true');
+					swal({
+						toast: true,
+						position: 'top-end',
+						type: '<?php echo $alertclass?>',
+						title: '<?php echo $alert_message?>',
+						confirmButtonClass: 'btn btn-default',
+						buttonsStyling: false,
+						timer: 8000
+					});
+				}
+			})();
 		</script>
 	<?php endif; ?>
 
