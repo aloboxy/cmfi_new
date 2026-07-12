@@ -113,7 +113,7 @@
 			</div>
 
 			<!-- Role Tabs -->
-			<div class="role-tabs">
+			<!-- <div class="role-tabs">
 				<button class="role-tab active" type="button" id="tab-admin">
 					<i class="fas fa-user-shield"></i> Admin
 				</button>
@@ -123,7 +123,7 @@
 				<button class="role-tab" type="button" id="tab-student">
 					<i class="fas fa-user-graduate"></i> Student
 				</button>
-			</div>
+			</div> -->
 
 			<!-- Alerts -->
 			<?php if (form_error('email') || form_error('password')): ?>
