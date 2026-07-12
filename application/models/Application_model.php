@@ -41,6 +41,7 @@ class Application_model extends CI_Model
             }
             return true;
         }
+        return true;
     }
 
     public function getUserNameByRoleID($roleID, $userID = '')

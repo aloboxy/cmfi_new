@@ -70,29 +70,29 @@ class Settings extends Admin_Controller
 
         if ($this->input->post('submit') == 'logo') {
             if (!empty($_FILES['logo_file']['tmp_name']) && is_uploaded_file($_FILES['logo_file']['tmp_name'])) {
-                move_uploaded_file($_FILES['logo_file']['tmp_name'], 'uploads/app_image/logo.png');
+                move_uploaded_file($_FILES['logo_file']['tmp_name'], FCPATH . 'uploads/app_image/logo.png');
             }
             if (!empty($_FILES['text_logo']['tmp_name']) && is_uploaded_file($_FILES['text_logo']['tmp_name'])) {
-                move_uploaded_file($_FILES['text_logo']['tmp_name'], 'uploads/app_image/logo-small.png');
+                move_uploaded_file($_FILES['text_logo']['tmp_name'], FCPATH . 'uploads/app_image/logo-small.png');
             }
             if (!empty($_FILES['print_file']['tmp_name']) && is_uploaded_file($_FILES['print_file']['tmp_name'])) {
-                move_uploaded_file($_FILES['print_file']['tmp_name'], 'uploads/app_image/printing-logo.png');
+                move_uploaded_file($_FILES['print_file']['tmp_name'], FCPATH . 'uploads/app_image/printing-logo.png');
             }
             if (!empty($_FILES['report_card']['tmp_name']) && is_uploaded_file($_FILES['report_card']['tmp_name'])) {
-                move_uploaded_file($_FILES['report_card']['tmp_name'], 'uploads/app_image/report-card-logo.png');
+                move_uploaded_file($_FILES['report_card']['tmp_name'], FCPATH . 'uploads/app_image/report-card-logo.png');
             }
             if (!empty($_FILES['idcard_bg']['tmp_name']) && is_uploaded_file($_FILES['idcard_bg']['tmp_name'])) {
-                move_uploaded_file($_FILES['idcard_bg']['tmp_name'], 'uploads/app_image/idcard_bg.png');
+                move_uploaded_file($_FILES['idcard_bg']['tmp_name'], FCPATH . 'uploads/app_image/idcard_bg.png');
             }
 
             if (!empty($_FILES['slider_1']['tmp_name']) && is_uploaded_file($_FILES['slider_1']['tmp_name'])) {
-                move_uploaded_file($_FILES['slider_1']['tmp_name'], 'uploads/login_image/slider_1.jpg');
+                move_uploaded_file($_FILES['slider_1']['tmp_name'], FCPATH . 'uploads/login_image/slider_1.jpg');
             }
             if (!empty($_FILES['slider_2']['tmp_name']) && is_uploaded_file($_FILES['slider_2']['tmp_name'])) {
-                move_uploaded_file($_FILES['slider_2']['tmp_name'], 'uploads/login_image/slider_2.jpg');
+                move_uploaded_file($_FILES['slider_2']['tmp_name'], FCPATH . 'uploads/login_image/slider_2.jpg');
             }
             if (!empty($_FILES['slider_3']['tmp_name']) && is_uploaded_file($_FILES['slider_3']['tmp_name'])) {
-                move_uploaded_file($_FILES['slider_3']['tmp_name'], 'uploads/login_image/slider_3.jpg');
+                move_uploaded_file($_FILES['slider_3']['tmp_name'], FCPATH . 'uploads/login_image/slider_3.jpg');
             }
 
             set_alert('success', translate('the_configuration_has_been_updated'));
