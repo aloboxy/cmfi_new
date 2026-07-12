@@ -1,4 +1,4 @@
-name: 🚀 Demo Deploy
+name: 🚀 Demo Deploy (via SSH)
 
 on:
   push:
@@ -6,23 +6,22 @@ on:
       - cmfi  # Updated to your branch
 
 jobs:
-  ftp-deploy:
-    name: FTP Deploy
+  ssh-deploy:
+    name: SSH Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Executing remote ssh commands
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          server: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          protocol: ftp
-          server-dir: ./sms.libimage.com/  # Directs the FTP upload to your folder
+          port: ${{ secrets.FTP_PORT }}       # Ensure this is your SSH port (usually 22)
+          script: |
+            cd ~/sms.libimage.com/
+            git pull origin cmfi
+            
           exclude: |
             **/.git*
             **/.github*
