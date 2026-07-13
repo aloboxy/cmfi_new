@@ -5,7 +5,7 @@
 	<meta name="description" content="Lib School Management System - Monrovia, Liberia">
 	<meta name="author" content="l School">
 	<title><?php echo html_escape($title);?> — Lib School</title>
-    <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
+    <link rel="shortcut icon" href="<?php echo cache_busted_url('uploads/app_image/logo-small.png');?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- include stylesheet -->
 	<?php include 'stylesheet.php';?>

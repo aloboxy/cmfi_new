@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4  # Upgraded to v4
+        uses: actions/checkout@v4
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -22,8 +22,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
-          # Changed to a relative path. If your FTP user logs directly into sms.libimage.com, change this to ./
-          server-dir: ./sms.libimage.com/  
+          server-dir: ./  # Pushes directly to the FTP user's login directory
           exclude: |
             **/.git*
             **/.github*

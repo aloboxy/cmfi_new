@@ -8,7 +8,7 @@
 	<meta name="description" content="SouMed School Management System">
 	<meta name="author" content="SouMed">
 	<title><?php echo translate('reset_password');?></title>
-	<link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
+	<link rel="shortcut icon" href="<?php echo cache_busted_url('uploads/app_image/logo-small.png');?>">
 	
 	<!-- Web Fonts  -->
 	<link href="<?php echo is_secure('fonts.googleapis.com/css?family=Signika:300,400,600,700');?>" rel="stylesheet"> 

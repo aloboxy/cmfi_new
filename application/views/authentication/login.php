@@ -7,7 +7,7 @@
 	<meta name="description" content="Lib Image School Management System - Monrovia, Liberia">
 	<meta name="author" content="Lib Image School">
 	<title><?php echo translate('login'); ?> — Lib Image School</title>
-	<link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
+	<link rel="shortcut icon" href="<?php echo cache_busted_url('uploads/app_image/logo-small.png');?>">
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,8 +104,8 @@
 			<!-- School Logo & Title -->
 			<div class="form-header">
 				<div class="school-logo-wrap">
-					<img src="<?php echo base_url('uploads/app_image/logo.png');?>"
-					     onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\"font-size:28px;\">🏫</span>'"
+					<img src="<?php echo cache_busted_url('uploads/app_image/logo-small.png');?>"
+					     onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=&quot;font-size:28px;&quot;>🏫</span>'"
 					     alt="School Logo">
 				</div>
 				<h2 class="form-title"><?php echo $global_config['institute_name']; ?></h2>
