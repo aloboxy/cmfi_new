@@ -96,7 +96,7 @@ class Student extends Admin_Controller
                     'student_id' => $studentID,
                     'class_id' => $post['class_id'],
                     'section_id' => $post['section_id'],
-                    'roll' => $post['roll'],
+                    'roll' => isset($post['roll']) ? $post['roll'] : '',
                     'session_id' => $post['year_id'],
                     'branch_id' => $branchID,
                 );
@@ -407,7 +407,7 @@ class Student extends Admin_Controller
                 $arrayEnroll = array(
                     'class_id' => $this->input->post('class_id'),
                     'section_id' => $this->input->post('section_id'),
-                    'roll' => $this->input->post('roll'),
+                    'roll' => $this->input->post('roll') !== null ? $this->input->post('roll') : '',
                     'session_id' => $this->input->post('year_id'),
                     'branch_id' => $this->data['branch_id'],
                 );

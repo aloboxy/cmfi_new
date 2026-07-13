@@ -2,9 +2,9 @@
 	<meta charset="UTF-8">
 	<meta name="keywords" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="CMFI School Management System - Monrovia, Liberia">
-	<meta name="author" content="CMFI School">
-	<title><?php echo html_escape($title);?> — CMFI School</title>
+	<meta name="description" content="Lib School Management System - Monrovia, Liberia">
+	<meta name="author" content="l School">
+	<title><?php echo html_escape($title);?> — Lib School</title>
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- include stylesheet -->

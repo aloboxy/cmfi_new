@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width,initial-scale=1" name="viewport">
-	<meta name="description" content="CMFI School Management System - Monrovia, Liberia">
-	<meta name="author" content="CMFI School">
-	<title><?php echo translate('login'); ?> — CMFI School</title>
+	<meta name="description" content="Lib Image School Management System - Monrovia, Liberia">
+	<meta name="author" content="Lib Image School">
+	<title><?php echo translate('login'); ?> — Lib Image School</title>
 	<link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png');?>">
 
 	<!-- Google Fonts -->
@@ -45,7 +45,7 @@
 		<div class="hero-brand">
 			<div class="hero-brand-icon">🎓</div>
 			<div>
-				<div class="hero-brand-name">CMFI School</div>
+				<div class="hero-brand-name">Lib Image School</div>
 				<div class="hero-brand-sub">Monrovia, Liberia</div>
 			</div>
 		</div>
