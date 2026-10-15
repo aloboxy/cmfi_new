@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant sidebar-collapsed (&:where(html.sidebar-collapsed *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-brand-50: oklch(0.97 0.014 254.6);
+    --color-brand-100: oklch(0.932 0.032 255.6);
+    --color-brand-200: oklch(0.882 0.058 254.1);
+    --color-brand-300: oklch(0.809 0.093 253.7);
+    --color-brand-400: oklch(0.707 0.145 253.9);
+    --color-brand-500: oklch(0.606 0.186 253.6);
+    --color-brand-600: oklch(0.546 0.215 261.8);
+    --color-brand-700: oklch(0.488 0.217 264.4);
+    --color-brand-800: oklch(0.424 0.199 265.6);
+    --color-brand-900: oklch(0.379 0.146 265.5);
+    --color-brand-950: oklch(0.283 0.109 264.5);
+
+    --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.06);
+
+    --animate-fade-up: fade-up 0.45s cubic-bezier(0.21, 1.02, 0.73, 1) both;
+    --animate-fade-in: fade-in 0.35s ease both;
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
+
+@layer base {
+    [x-cloak] { display: none !important; }
+
+    html { scrollbar-gutter: stable; }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-thumb { border-radius: 999px; background: rgb(148 163 184 / 0.45); }
+    ::-webkit-scrollbar-track { background: transparent; }
+
+    .dark ::-webkit-scrollbar-thumb { background: rgb(71 85 105 / 0.55); }
+
+    /* Modern button and interactive enhancements */
+    button, a.button {
+        @apply transition-all duration-200 active:scale-[0.97];
+    }
+
+    /* ────── Form typography — high-contrast text & placeholders ────── */
+    label {
+        color: #334155;
+        font-weight: 500;
+    }
+    html.dark label {
+        color: #cbd5e1;
+    }
+
+    input:not([type=checkbox]):not([type=radio]),
+    select,
+    textarea {
+        color: #0f172a;
+        background-color: #ffffff;
+        border-color: #e2e8f0;
+    }
+    input:not([type=checkbox]):not([type=radio])::placeholder,
+    textarea::placeholder {
+        color: #94a3b8;
+        opacity: 1;
+    }
+    /* placeholder-like empty select */
+    select:invalid {
+        color: #94a3b8;
+    }
+    select option {
+        color: #0f172a;
+        background-color: #ffffff;
+    }
+    select option:checked {
+        background-color: #2563eb;
+        color: #ffffff;
+    }
+
+    /* ────── Dark-mode form inputs ────── */
+    html.dark input:not([type=checkbox]):not([type=radio]),
+    html.dark select,
+    html.dark textarea {
+        color: #e2e8f0 !important;
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+    }
+    html.dark input:not([type=checkbox]):not([type=radio])::placeholder,
+    html.dark textarea::placeholder {
+        color: #94a3b8 !important;
+        opacity: 1 !important;
+    }
+    html.dark select:invalid {
+        color: #94a3b8 !important;
+    }
+    html.dark select option {
+        background-color: #1e293b !important;
+        color: #e2e8f0 !important;
+    }
+    html.dark select option:checked {
+        background-color: #2563eb !important;
+        color: #ffffff !important;
+    }
+    html.dark select:focus,
+    html.dark input:not([type=checkbox]):not([type=radio]):focus,
+    html.dark textarea:focus {
+        background-color: #0f172a !important;
+        border-color: #2563eb !important;
+    }
+}
+
+/* subtle dot grid used on the auth hero */
+.bg-dots {
+    background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+/* soft glow blobs */
+.glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+/* System color overrides — make every hardcoded primary follow theme_settings.primary_color */
+.bg-\[\#2563eb\]{background:var(--primary) !important}
+.text-\[\#2563eb\]{color:var(--primary) !important}
+.border-\[\#2563eb\]{border-color:var(--primary) !important}
+.from-\[\#2563eb\]{--tw-gradient-from:var(--primary) !important}
+.to-\[\#2563eb\]{--tw-gradient-to:var(--primary) !important}
+.ring-\[\#2563eb\]{--tw-ring-color:var(--primary) !important}
+.focus\:ring-\[\#2563eb\]:focus{--tw-ring-color:var(--primary) !important}
+.focus\:border-\[\#2563eb\]:focus{border-color:var(--primary) !important}
+

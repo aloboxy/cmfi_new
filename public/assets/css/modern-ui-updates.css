@@ -1,0 +1,652 @@
+/* ==========================================================================
+   CMFI School Management System - Modern UI Stylesheet Overrides
+   Enhances Topbar, Navbar, Sidebar, Dropdowns, and Admissions Highlight
+   ========================================================================== */
+
+/* ── 1. Topbar / Header Glassmorphism ── */
+.header {
+  height: 70px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s ease;
+  z-index: 1000 !important;
+}
+
+html:not(.dark) .header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+html.dark .header {
+  background: rgba(17, 24, 39, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.logo-env {
+  height: 70px !important;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.logo-env .logo img {
+  max-height: 40px !important;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-env .logo:hover img {
+  transform: scale(1.05);
+}
+
+/* Logo Text Styles */
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--primary-light, #1d4ed8);
+}
+
+html.dark .logo-text {
+  color: #fff;
+}
+
+.logo-text-bold {
+  font-weight: 700;
+  color: var(--sidebar-active, #f4a61f);
+}
+
+/* ── 2. Redesigned Topbar Search Bar ── */
+.search.nav-form-modern {
+  margin: 15px 0 0 20px !important;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrapper .search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-dark, #6b7280);
+  opacity: 0.7;
+  font-size: 13px;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.search-input-field {
+  height: 38px;
+  width: 200px;
+  padding: 0 16px 0 38px;
+  border-radius: 20px !important;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html.dark .search-input-field {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.search-input-field::placeholder {
+  color: #9ca3af;
+}
+
+.search-input-field:focus {
+  width: 280px;
+  background: #fff;
+  border-color: var(--primary-light, #1d4ed8);
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.1);
+}
+
+html.dark .search-input-field:focus {
+  background: rgba(17, 24, 39, 0.9);
+  border-color: var(--primary-light, #3b82f6);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+}
+
+.search-input-field:focus + .search-icon {
+  color: var(--primary-light, #1d4ed8);
+  opacity: 1;
+}
+
+/* ── 3. Premium Dropdowns and Notification Panels ── */
+.header-right .header-menu > li .dropdown-menu.header-menubox {
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 10px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+html.dark .header-right .header-menu > li .dropdown-menu.header-menubox {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+.notification-title {
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+html.dark .notification-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.dropdown-menu.header-menubox .content ul li a {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  transition: background-color 0.2s ease;
+}
+
+html.dark .dropdown-menu.header-menubox .content ul li a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+}
+
+.dropdown-menu.header-menubox .content ul li a:hover {
+  background-color: rgba(29, 78, 216, 0.04) !important;
+}
+
+html.dark .dropdown-menu.header-menubox .content ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* User profile box inside topbar */
+.userbox {
+  margin-top: 13px !important;
+  border-radius: 12px;
+  padding: 2px 8px;
+  transition: all 0.2s ease;
+}
+
+.userbox:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html.dark .userbox:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.userbox .profile-picture img {
+  border: 2px solid var(--primary-light, #1d4ed8);
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.15);
+}
+
+.userbox .role {
+  font-size: 0.72rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+}
+
+/* User dropdown popup styling */
+.userbox .dropdown-menu {
+  border-radius: 16px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  padding: 8px 0 !important;
+  margin-top: 10px;
+}
+
+html.dark .userbox .dropdown-menu {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.dw-user-box {
+  padding: 12px 16px !important;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dw-user-box .u-img img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-light, #1d4ed8);
+}
+
+.dw-user-box h4 {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 2px 0 !important;
+}
+
+/* ── 4. Sidebar Overrides & Navigation Styling ── */
+.sidebar-left {
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.03) !important;
+}
+
+.nav-main li a {
+  border-radius: 10px;
+  margin: 2px 12px;
+  padding: 10px 14px !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Hover effect on regular sidebar links */
+.nav-main li:not(.nav-parent):not(.nav-active) a:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  padding-left: 18px !important;
+}
+
+/* Active State layout */
+.nav-main li.nav-active > a {
+  background: linear-gradient(135deg, var(--primary-light, #1d4ed8) 0%, rgba(29, 78, 216, 0.85) 100%) !important;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.25) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.nav-main li.nav-active > a i {
+  color: #fff !important;
+}
+
+/* Sidebar Headings */
+.sidebar-title {
+  padding: 18px 24px 8px !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  opacity: 0.4;
+}
+
+/* ── 5. Highlight Student Admissions Sidebar Section ── */
+/* Target the Admissions menu dynamically based on the user-plus icon */
+.nav-main li.nav-parent:has(.fa-user-plus),
+.nav-main li.nav-parent:has(i.fa-user-plus) {
+  position: relative;
+  background: rgba(59, 130, 246, 0.04);
+  border-radius: 14px;
+  margin: 6px 10px;
+  border: 1px dashed rgba(59, 130, 246, 0.15);
+}
+
+.nav-main li.nav-parent:has(.fa-user-plus) > a,
+.nav-main li.nav-parent:has(i.fa-user-plus) > a {
+  background: rgba(59, 130, 246, 0.06) !important;
+  margin: 0 !important;
+  border-radius: 12px 12px 0 0;
+  border-left: 3px solid var(--sidebar-active, #f4a61f) !important;
+}
+
+.nav-main li.nav-parent:has(.fa-user-plus) > a i,
+.nav-main li.nav-parent:has(i.fa-user-plus) > a i {
+  color: var(--sidebar-active, #f4a61f) !important;
+  animation: pulse-glow 2.5s infinite alternate;
+}
+
+/* Add a badge indicator next to Admissions text */
+.nav-main li.nav-parent:has(.fa-user-plus) > a::after,
+.nav-main li.nav-parent:has(i.fa-user-plus) > a::after {
+  content: 'Active';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+}
+
+/* Adjust layout when sidebar collapsed */
+.sidebar-left-collapsed .nav-main li.nav-parent:has(.fa-user-plus) > a::after {
+  display: none;
+}
+
+/* Admissions Children Menu Styles */
+.nav-main li.nav-parent:has(.fa-user-plus) .nav-children,
+.nav-main li.nav-parent:has(i.fa-user-plus) .nav-children {
+  background: transparent !important;
+  padding: 4px 0;
+}
+
+.nav-main li.nav-parent:has(.fa-user-plus) .nav-children li a,
+.nav-main li.nav-parent:has(i.fa-user-plus) .nav-children li a {
+  padding-left: 22px !important;
+  transition: all 0.2s ease;
+  margin: 1px 10px !important;
+  font-size: 0.82rem;
+}
+
+.nav-main li.nav-parent:has(.fa-user-plus) .nav-children li a:hover,
+.nav-main li.nav-parent:has(i.fa-user-plus) .nav-children li a:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding-left: 28px !important;
+  color: #fff !important;
+}
+
+/* Admissions sub-item active state */
+.nav-main li.nav-parent:has(.fa-user-plus) .nav-children li.nav-active a,
+.nav-main li.nav-parent:has(i.fa-user-plus) .nav-children li.nav-active a {
+  background: rgba(59, 130, 246, 0.12) !important;
+  border-left: 2px solid var(--sidebar-active, #f4a61f) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+@keyframes pulse-glow {
+  0% {
+    filter: drop-shadow(0 0 1px rgba(244, 166, 31, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(244, 166, 31, 0.85));
+  }
+}
+
+/* ── 5. Settings Panel & Tabs Modernization ── */
+.panel {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+html.dark .panel {
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.tabs-custom .nav-tabs {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+html.dark .tabs-custom .nav-tabs {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tabs-custom .nav-tabs > li {
+  margin-bottom: -2px;
+}
+
+.tabs-custom .nav-tabs > li > a {
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0;
+  padding: 15px 25px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--text-dark, #6b7280);
+  transition: all 0.3s ease;
+  background: transparent !important;
+}
+
+html.dark .tabs-custom .nav-tabs > li > a {
+  color: #9ca3af;
+}
+
+.tabs-custom .nav-tabs > li.active > a,
+.tabs-custom .nav-tabs > li > a:hover {
+  border-bottom: 2px solid var(--primary-light, #1d4ed8) !important;
+  color: var(--primary-light, #1d4ed8) !important;
+}
+
+html.dark .tabs-custom .nav-tabs > li.active > a,
+html.dark .tabs-custom .nav-tabs > li > a:hover {
+  border-bottom-color: var(--primary-light, #3b82f6) !important;
+  color: #fff !important;
+}
+
+.tabs-custom .tab-content {
+  padding: 25px;
+  border: none;
+  background: transparent;
+}
+
+.form-bordered .form-group {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 20px 0;
+  margin: 0;
+}
+
+html.dark .form-bordered .form-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.form-control {
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+html.dark .form-control {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.form-control:focus {
+  border-color: var(--primary-light, #1d4ed8);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+html.dark .form-control:focus {
+  border-color: var(--primary-light, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.btn-default {
+  background: var(--primary-light, #1d4ed8) !important;
+  border-color: var(--primary-light, #1d4ed8) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-default:hover {
+  background: rgba(29, 78, 216, 0.9) !important;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Ensure panel footer uses modern background */
+.panel-footer {
+  background: rgba(0, 0, 0, 0.015);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 12px 12px;
+  padding: 20px 25px;
+}
+
+html.dark .panel-footer {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dropify Overrides for Modern Look */
+.dropify-wrapper {
+  border-radius: 12px !important;
+  border: 2px dashed rgba(0, 0, 0, 0.15) !important;
+  background: rgba(0, 0, 0, 0.01) !important;
+  transition: all 0.3s ease !important;
+}
+
+.dropify-wrapper:hover {
+  border-color: var(--primary-light, #1d4ed8) !important;
+  background: rgba(29, 78, 216, 0.02) !important;
+}
+
+html.dark .dropify-wrapper {
+  border: 2px dashed rgba(255, 255, 255, 0.1) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+html.dark .dropify-wrapper:hover {
+  border-color: var(--primary-light, #3b82f6) !important;
+  background: rgba(59, 130, 246, 0.05) !important;
+}
+
+/* Fix for .btn-circle squishing background when containing text */
+.panel-btn a.btn,
+.panel-btn button.btn,
+.btn-circle:not(.icon) {
+  background: transparent !important;
+  color: var(--text-dark, #374151) !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 0 6px !important;
+  height: auto !important;
+  width: auto !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+}
+
+html.dark .panel-btn a.btn,
+html.dark .panel-btn button.btn {
+  color: #e2e8f0 !important;
+}
+
+.panel-btn a.btn i,
+.panel-btn button.btn i {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: var(--primary-light, #1d4ed8) !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  font-size: 14px !important;
+  box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2) !important;
+  transition: all 0.2s ease !important;
+  margin: 0 !important;
+}
+
+.panel-btn a.btn:hover i,
+.panel-btn button.btn:hover i {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 15px rgba(29, 78, 216, 0.35) !important;
+}
+
+
+
+
+/* Attendance Segmented Controls */
+.attendance-segmented {
+  display: flex;
+  align-items: center;
+  background: var(--bg-color, #f3f4f6);
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  width: fit-content;
+}
+
+html.dark .attendance-segmented {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.attendance-segmented input[type="radio"] {
+  display: none;
+}
+
+.attendance-segmented label {
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color, #6b7280);
+  transition: all 0.2s ease;
+  margin: 0;
+  user-select: none;
+}
+
+html.dark .attendance-segmented label {
+  color: #9ca3af;
+}
+
+/* Present - Green */
+.attendance-segmented input[type="radio"][value="P"]:checked + label {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Absent - Red */
+.attendance-segmented input[type="radio"][value="A"]:checked + label {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+/* Holiday - Blue */
+.attendance-segmented input[type="radio"][value="H"]:checked + label {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Late - Yellow/Orange */
+.attendance-segmented input[type="radio"][value="L"]:checked + label {
+  background: #f59e0b;
+  color: white;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+/* Sticky Footer */
+.sticky-attendance-footer {
+  position: sticky;
+  bottom: 0;
+  background: var(--card-bg, #ffffff);
+  padding: 15px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  z-index: 100;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+html.dark .sticky-attendance-footer {
+  background: #27292d;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}

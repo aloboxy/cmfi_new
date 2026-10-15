@@ -1,0 +1,18 @@
+@extends('layouts.app')
+@section('title', translate('invoice'))
+@section('content')
+<div class="space-y-5">
+ <h2 class="text-lg font-bold">{{ translate('invoice') }} - {{ $basic->first_name ?? '' }} {{ $basic->last_name ?? '' }}</h2>
+ @if($basic)<div class="rounded-2xl bg-white border p-5 text-sm grid grid-cols-2 gap-2"><div>Class: {{ $basic->class_name }}</div><div>School: {{ $basic->school_name }}</div><div>Student: {{ $basic->first_name }} {{ $basic->last_name }}</div><div>Invoice No: {{ $invoice['invoice_no'] }} ({{ $invoice['status'] }})</div></div>@endif
+ <div class="rounded-2xl bg-white border overflow-hidden">
+  <table class="w-full text-sm"><thead class="bg-slate-50"><tr><th class="px-4 py-3 text-left">Fee Type</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Due Date</th><th class="px-4 py-3">Paid</th><th class="px-4 py-3">Discount</th><th class="px-4 py-3">Fine</th><th class="px-4 py-3">Balance</th><th class="px-4 py-3">Action</th></tr></thead>
+   <tbody class="divide-y">
+    @foreach($details as $d)<tr><td class="px-4 py-3">{{ $d->name }}</td><td class="px-4 py-3 text-center">{{ $d->amount }}</td><td class="px-4 py-3 text-center">{{ $d->due_date }}</td><td class="px-4 py-3 text-center">{{ $d->paid }}</td><td class="px-4 py-3 text-center">{{ $d->discount }}</td><td class="px-4 py-3 text-center">{{ $d->fine_due }}</td><td class="px-4 py-3 text-center font-semibold">{{ $d->balance }}</td><td class="px-4 py-3 text-center">@if($d->balance>0)<button onclick="document.getElementById('pay-{{ $d->allocation_id }}-{{ $d->fee_type_id }}').classList.toggle('hidden')" class="px-3 py-1 bg-[#2563eb] text-white rounded-lg text-xs">Pay</button>@else <span class="text-green-600 text-xs">Paid</span>@endif</td></tr>
+    <tr id="pay-{{ $d->allocation_id }}-{{ $d->fee_type_id }}" class="hidden bg-slate-50"><td colspan="8" class="p-4"><form method="POST" action="{{ route('fees.fee_add') }}" class="flex flex-wrap gap-2 items-end">@csrf<input type="hidden" name="fees_type" value="{{ $d->allocation_id }}|{{ $d->fee_type_id }}"><input type="hidden" name="student_id" value="{{ $student_id }}"><div><label class="block text-xs">Amount *</label><input type="number" step="0.01" name="amount" class="border rounded-lg px-2 py-1 text-sm w-24" required></div><div><label class="block text-xs">Discount</label><input type="number" step="0.01" name="discount_amount" value="0" class="border rounded-lg px-2 py-1 text-sm w-20"></div><div><label class="block text-xs">Fine</label><input type="number" step="0.01" name="fine_amount" value="{{ $d->fine_due }}" class="border rounded-lg px-2 py-1 text-sm w-20"></div><div><label class="block text-xs">Date *</label><input type="date" name="date" value="{{ date('Y-m-d') }}" class="border rounded-lg px-2 py-1 text-sm" required></div><div><label class="block text-xs">Pay Via *</label><select name="pay_via" class="border rounded-lg px-2 py-1 text-sm" required>@foreach($payTypes as $pt)<option value="{{ $pt->id }}">{{ $pt->name }}</option>@endforeach</select></div><div><label class="block text-xs">Account</label><select name="account_id" class="border rounded-lg px-2 py-1 text-sm"><option value="">None</option>@foreach($accounts as $ac)<option value="{{ $ac->id }}">{{ $ac->name }}</option>@endforeach</select></div><div><label class="block text-xs">Remarks</label><input type="text" name="remarks" class="border rounded-lg px-2 py-1 text-sm"></div><button class="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm">Submit</button></form></td></tr>
+    @endforeach
+   </tbody>
+  </table>
+ </div>
+ <a href="{{ route('fees.collect') }}" class="inline-block px-4 py-2 border rounded-xl text-sm">Back</a>
+</div>
+@endsection
